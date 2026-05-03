@@ -3,104 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="theme-color" content="#1a120b">
+    <meta name="theme-color" content="#2c1e16">
     <title>Společenství v bolesti | Srdce v běhu</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:ital,wght@0,400;0,700;1,400&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- TOP NAVIGATION -->
-    <nav class="book-nav">
-        <button class="nav-btn" onclick="turnToPaper(0)">Obálka (Cover)</button>
-        <button class="nav-btn" onclick="turnToPaper(1)">Náš Příběh (Story)</button>
-        <button class="nav-btn" onclick="turnToPaper(2)">Kostel (Donate)</button>
-        <button class="nav-btn" onclick="turnToPaper(3)">Prázdná (Modular)</button>
-    </nav>
+    <!-- STABLE BACKGROUND -->
+    <div class="universal-bg">
+        <img src="church-cutout.png" alt="">
+    </div>
 
-    <div class="book-wrapper">
-        <div id="book" class="book">
+    <div class="ui-layer">
+        <!-- TOP NAVIGATION -->
+        <nav class="book-nav">
+            <button class="nav-btn" onclick="goToPage(0)">Obálka</button>
+            <button class="nav-btn" onclick="goToPage(1)">Náš Příběh</button>
+            <button class="nav-btn" onclick="goToPage(2)">Kostel</button>
+            <button class="nav-btn" onclick="goToPage(3)">Jak Pomoci</button>
+        </nav>
+
+        <!-- THE 3D BOOK STACK -->
+        <div id="book-stack">
             
-            <!-- PAPER 0: THE COVER -->
-            <div class="paper" id="paper-0">
-                <div class="front leather-cover">
-                    <div class="gold-border">
-                        <h1 class="cover-title">Společenství<br>v bolesti</h1>
-                        <div class="cover-ornament">✦</div>
-                        <p class="cover-subtitle">Srdce v běhu</p>
-                    </div>
-                </div>
-                <div class="back inside-cover">
-                    <!-- Blank parchment inside the cover -->
+            <!-- PAGE 0: COVER -->
+            <div class="page leather-cover" id="page-0">
+                <div class="gold-border">
+                    <h1 class="cover-title">Společenství<br>v bolesti</h1>
+                    <div class="cover-ornament">✦</div>
+                    <p class="cover-subtitle">Srdce v běhu</p>
                 </div>
             </div>
 
-            <!-- PAPER 1: HERO & STORY (Pages 1 & 2) -->
-            <div class="paper" id="paper-1">
-                <div class="front page-content">
-                    <h2 class="page-title">Srdce v běhu</h2>
-                    <hr class="page-divider">
-                    <h3>Náš Tým</h3>
-                    <p>Jsme skupina nadšenců, sportovců a dobrovolníků. Spojila nás touha pomáhat těm, kteří to nejvíce potřebují.</p>
-                    <p>Věříme, že každý krok, který uděláme, může znamenat naději pro někoho jiného. Naše komunita stojí na solidaritě, vytrvalosti a společné síle překonávat překážky.</p>
-                </div>
-                <div class="back page-content">
-                    <h2 class="page-title">Náš Cíl a Příběh</h2>
-                    <hr class="page-divider">
-                    <p>Cesta začala jednoduchou myšlenkou: spojit fyzickou aktivitu s pomocí duševně nemocným a zranitelným.</p>
-                    <p>Příběh naší organizace je příběhem o hledání světla v nejtemnějších chvílích. Pomáháme nacházet útočiště pro lidi ze všech sfér života a přinášíme komunitu do míst, kde dříve byla jen bolest.</p>
-                    <div class="page-number">2</div>
-                </div>
+            <!-- PAGE 1: STORY -->
+            <div class="page paper-page" id="page-1">
+                <h2 class="page-title">Srdce v běhu</h2>
+                <hr class="page-divider">
+                <h3>Náš Tým a Příběh</h3>
+                <p>Jsme skupina nadšenců, sportovců a dobrovolníků. Spojila nás touha pomáhat těm, kteří to nejvíce potřebují.</p>
+                <p>Příběh naší organizace je příběhem o hledání světla v nejtemnějších chvílích. Pomáháme nacházet útočiště pro lidi ze všech sfér života a přinášíme komunitu do míst, kde dříve byla jen bolest.</p>
+                <div class="page-number">1</div>
             </div>
 
-            <!-- PAPER 2: DONATION & QR (Pages 3 & 4) -->
-            <div class="paper" id="paper-2">
-                <div class="front page-content">
-                    <h2 class="page-title">Vraťme život kostelu</h2>
-                    <hr class="page-divider">
-                    <h3>Kostel sv. Václava</h3>
-                    <p>Pomoz opravit střechu kostela, který tu je pro všechny. Bezpečný přístav pro duševně nemocné a ty, kteří kráčí po nejtěžších životních cestách.</p>
-                    <!-- Using the church cutout as a nice illustration inside the book -->
-                    <img src="church-cutout.png" alt="Kostel" class="page-illustration">
-                    <div class="page-number">3</div>
-                </div>
-                <div class="back page-content">
-                    <h2 class="page-title">Jak Pomoci</h2>
-                    <hr class="page-divider">
-                    <p class="bold-text">Přispějte jakoukoli částkou na účet:</p>
-                    <div class="bank-box">73033081/0710</div>
-                    <p class="small-text">Kostel svatého Václava, Bohnice</p>
-                    
-                    <div class="qr-box">
-                        <img src="qr-code.png" alt="QR Platba" onerror="this.onerror=null; this.src='https://via.placeholder.com/150/ff0000/ffffff?text=Check+File!';">
-                    </div>
-                    <p class="bold-text">QR Platba</p>
-                    <div class="page-number">4</div>
-                </div>
+            <!-- PAGE 2: CHURCH INFO -->
+            <div class="page paper-page" id="page-2">
+                <h2 class="page-title">Vraťme život kostelu</h2>
+                <hr class="page-divider">
+                <h3>Kostel sv. Václava</h3>
+                <p>Pomoz opravit střechu kostela, který tu je pro všechny. Bezpečný přístav pro duševně nemocné a ty, kteří kráčí po nejtěžších životních cestách.</p>
+                <div class="page-number">2</div>
             </div>
 
-            <!-- PAPER 3: EMPTY MODULAR PAGE -->
-            <div class="paper" id="paper-3">
-                <div class="front page-content">
-                    <h2 class="page-title">Další Kapitola</h2>
-                    <p>Zde můžete přidat další obsah, formuláře, nebo fotogalerii...</p>
-                    <div class="page-number">5</div>
+            <!-- PAGE 3: DONATION -->
+            <div class="page paper-page" id="page-3">
+                <h2 class="page-title">Jak Pomoci</h2>
+                <hr class="page-divider">
+                <p class="bold-text">Přispějte jakoukoli částkou na účet:</p>
+                <div class="bank-box">73033081/0710</div>
+                <p class="small-text">Kostel svatého Václava, Bohnice</p>
+                
+                <div class="qr-box">
+                    <img src="qr-code.png" alt="QR Platba" onerror="this.onerror=null; this.src='https://via.placeholder.com/150/ff0000/ffffff?text=Check+File!';">
                 </div>
-                <div class="back inside-cover">
-                    <!-- Blank back cover interior -->
-                </div>
-            </div>
-
-            <!-- THE BACK LEATHER COVER (Attached to Paper 3) -->
-            <div class="paper back-cover-paper" id="paper-4">
-                <div class="front inside-cover"></div>
-                <div class="back leather-cover"></div>
+                <p class="bold-text">QR Platba</p>
+                <div class="page-number">3</div>
             </div>
 
         </div>
     </div>
 
-    <!-- Optional: Add a paper turning sound file named 'page-flip.mp3' to your folder -->
+    <!-- AUDIO FOR REALISM -->
     <audio id="flip-sound" src="page-flip.mp3" preload="auto"></audio>
 
     <script src="script.js"></script>
